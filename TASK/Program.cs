@@ -48,8 +48,13 @@ string[] FilteredArr(string[] array, int newSize)
     return filteredArr;
 }
 
-System.Console.WriteLine("Введите планируемое количество эллементов");
+System.Console.WriteLine("Введите планируемое количество эллементов. В целях экономии Вашего времени, введите значение меньше 20:");
 int size = Convert.ToInt32(Console.ReadLine());
+while (size > 20)
+{
+   System.Console.WriteLine("Введите значение меньше 20");
+   size = Convert.ToInt32(Console.ReadLine()); 
+}
 int count = 0;
 string[] massive = new string[size];
 for (int i = 0; i < size; i++)
