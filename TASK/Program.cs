@@ -34,6 +34,21 @@ int NewSize(string[] array, int size)
     return countLess3;
 }
 
+string[] FilteredArr(string[] array, int newSize)
+{
+    int j = 0;
+    string[] filteredArr = new string[newSize];
+    for (int i = 0; i < newSize; i++)
+    {
+        if (array[i].Length < 3)
+        {
+            filteredArr[j] = array[i];
+            j++;
+        }
+    }
+    return filteredArr;
+}
+
 System.Console.WriteLine("Введите планируемое количество эллементов");
 int size = Convert.ToInt32(Console.ReadLine());
 int count = 0;
@@ -51,6 +66,11 @@ for (int i = 0; i < size - 1; i++)
 }
 
 PrintArray(massive, size);
+int newSize = NewSize(massive,size);
+string[] filteredArr = FilteredArr(massive,newSize);
+System.Console.WriteLine();
+PrintArray(filteredArr,newSize);
+
 
 
 
