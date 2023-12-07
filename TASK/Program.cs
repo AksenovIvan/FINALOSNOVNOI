@@ -12,10 +12,26 @@ Console.Clear();
 
 void PrintArray(string[] array, int size)
 {
-    for (int i = 0; i < size; i++)
+    int i = 0;
+    System.Console.Write($"[{array[i]}");
+    for (i = 1; i < size; i++)
     {
-        System.Console.Write($"{array[i]}, ");
+        System.Console.Write($", {array[i]}");
     }
+    System.Console.Write("]");
+}
+
+int NewSize(string[] array, int size)
+{
+    int countLess3 = 0;
+    for (int i = 0; i < size-1; i++)
+    {
+        if (array[i].Length < 3)
+        {
+            countLess3++;
+        }
+    }
+    return countLess3;
 }
 
 System.Console.WriteLine("Введите планируемое количество эллементов");
@@ -26,6 +42,7 @@ for (int i = 0; i < size - 1; i++)
 {
     while (count < size)
     {
+        Console.Clear();
         System.Console.WriteLine("Введите элемент массива: ");
         massive[i] = Convert.ToString(Console.ReadLine());
         count++;
