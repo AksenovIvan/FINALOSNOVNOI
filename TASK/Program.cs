@@ -63,17 +63,10 @@ for (int i = 0; i < size; i++)
         i++;
     }
 }
+
 Console.Clear();
 PrintArray(massive, size);
 int newSize = NewSize(massive,size);
-System.Console.WriteLine();
-System.Console.WriteLine(newSize);
 string[] filteredArr = FilteredArr(massive,newSize);
 System.Console.WriteLine();
 PrintArray(filteredArr,newSize);
-System.Console.WriteLine();
-System.Console.WriteLine(filteredArr.Length);
-
-
-
-
