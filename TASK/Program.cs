@@ -12,9 +12,8 @@ Console.Clear();
 
 void PrintArray(string[] array, int size)
 {
-    int i = 0;
-    System.Console.Write($"[{array[i]}");
-    for (i = 1; i < size; i++)
+    System.Console.Write($"[{array[0]}");
+    for (int i = 1; i < size; i++)
     {
         System.Console.Write($", {array[i]}");
     }
@@ -24,9 +23,9 @@ void PrintArray(string[] array, int size)
 int NewSize(string[] array, int size)
 {
     int countLess3 = 0;
-    for (int i = 0; i < size-1; i++)
+    for (int i = 0; i < size; i++)
     {
-        if (array[i].Length < 3)
+        if (array[i].Length < 4)
         {
             countLess3++;
         }
@@ -38,9 +37,9 @@ string[] FilteredArr(string[] array, int newSize)
 {
     int j = 0;
     string[] filteredArr = new string[newSize];
-    for (int i = 0; i < newSize; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        if (array[i].Length < 3)
+        if (array[i].Length < 4)
         {
             filteredArr[j] = array[i];
             j++;
@@ -53,23 +52,27 @@ System.Console.WriteLine("Введите планируемое количест
 int size = Convert.ToInt32(Console.ReadLine());
 int count = 0;
 string[] massive = new string[size];
-for (int i = 0; i < size - 1; i++)
+for (int i = 0; i < size; i++)
 {
     while (count < size)
     {
         Console.Clear();
         System.Console.WriteLine("Введите элемент массива: ");
-        massive[i] = Convert.ToString(Console.ReadLine());
+        massive[i] = Console.ReadLine();
         count++;
         i++;
     }
 }
-
+Console.Clear();
 PrintArray(massive, size);
 int newSize = NewSize(massive,size);
+System.Console.WriteLine();
+System.Console.WriteLine(newSize);
 string[] filteredArr = FilteredArr(massive,newSize);
 System.Console.WriteLine();
 PrintArray(filteredArr,newSize);
+System.Console.WriteLine();
+System.Console.WriteLine(filteredArr.Length);
 
 
 
